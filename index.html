@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Incremental Progress Bar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .progress-wrapper {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #4caf50;
+      transition: width 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="addBtn">Add</button>
+  <div class="progress-wrapper">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
