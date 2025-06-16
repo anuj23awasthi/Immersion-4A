@@ -1,12 +1,12 @@
 document.getElementById('searchBtn').addEventListener('click', function() {
     const input = document.getElementById('searchInput').value.trim();
     const errorMsg = document.getElementById('errorMsg');
-    const resultsDiv = document.getElementById('results');
     errorMsg.textContent = '';
-    resultsDiv.innerHTML = '';
-    resultsDiv.classList.remove('active');
     if (!input) {
-        errorMsg.textContent = 'Search field cannot be empty.';
+        // If search is empty, show all products
+        currentProducts = allProducts;
+        populateBrandFilter(allProducts);
+        applyFiltersAndSort();
         return;
     }
     fetch(`https://dummyjson.com/products/search?q=${encodeURIComponent(input)}`)
@@ -27,6 +27,7 @@ document.getElementById('searchBtn').addEventListener('click', function() {
 });
 
 let currentProducts = [];
+let allProducts = [];
 
 function renderProducts(products) {
     const resultsDiv = document.getElementById('results');
@@ -89,6 +90,18 @@ function populateBrandFilter(products) {
         brandFilter.appendChild(opt);
     });
 }
+
+// Fetch all products on page load
+window.addEventListener('DOMContentLoaded', function() {
+    fetch('https://dummyjson.com/products?limit=100')
+        .then(response => response.json())
+        .then(data => {
+            allProducts = data.products;
+            currentProducts = allProducts;
+            populateBrandFilter(allProducts);
+            applyFiltersAndSort();
+        });
+});
 
 document.getElementById('sortSelect').addEventListener('change', applyFiltersAndSort);
 document.getElementById('brandFilter').addEventListener('change', applyFiltersAndSort);
