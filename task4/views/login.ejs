@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/views/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="container">
+        <h2>CarZone</h2>
+        <div class="navbar-links">
+            <a href="/register">Register</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label>Username:
+            <input type="text" name="username" required>
+        </label>
+        <label>Password:
+            <input type="password" name="password" required>
+        </label>
+        <button type="submit">Login</button>
+    </form>
+    <a class="back-link" href="/register">Don't have an account? Register</a>
+</div>
+</body>
+</html>

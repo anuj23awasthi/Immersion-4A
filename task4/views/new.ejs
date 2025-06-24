@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Vehicle</title>
+    <link rel="stylesheet" href="/views/style.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="container">
+        <h2>CarZone</h2>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Add New Vehicle</h1>
+    <form action="/vehicles" method="POST">
+        <label>Vehicle Name:
+            <input type="text" name="vehicleName" required>
+        </label>
+        <label>Brand:
+            <input type="text" name="brand" required>
+        </label>
+        <label>Price:
+            <input type="number" name="price" required>
+        </label>
+        <label>Image URL:
+            <input type="text" name="image" required>
+        </label>
+        <label>Description:
+            <textarea name="desc" required></textarea>
+        </label>
+        <button type="submit">Add Vehicle</button>
+    </form>
+    <a class="back-link" href="/">Back to List</a>
+</div>
+</body>
+</html>
